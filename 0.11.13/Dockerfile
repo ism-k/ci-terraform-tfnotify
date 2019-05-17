@@ -1,4 +1,4 @@
-FROM hashicorp/terraform:0.11.14
+FROM hashicorp/terraform:0.11.13
 
 ENV TFNOTIFY_VERSION=0.3.0
 
