@@ -4,7 +4,7 @@ ENV TFNOTIFY_VERSION=0.7.0
 ENV GLIBC_VERSION=2.32-r0
 ENV AWS_CLI_VERSION=2.0.30
 
-RUN    apk add --update --no-cache --virtual .build-deps curl binutils \
+RUN    apk add --update --no-cache curl && apk add --no-cache --virtual .build-deps binutils \
     && curl -sL https://github.com/mercari/tfnotify/releases/download/v${TFNOTIFY_VERSION}/tfnotify_linux_amd64.tar.gz -o /tmp/tfnotify.tar.gz -o /tmp/tfnotify.tar.gz \
     && tar zxvf /tmp/tfnotify.tar.gz -C /tmp \
     && cp /tmp/tfnotify /usr/local/bin/tfnotify \
