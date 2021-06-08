@@ -15,11 +15,7 @@ jobs:
           command: docker login -u "$DOCKER_HUB_USER" -p "$DOCKER_HUB_PASSWORD"
       - run:
           name: Build and push docker image
-          command: |
-            for tag in $( find . -follow -name Dockerfile | sed "s/^.\/\(.*\)\/Dockerfile/\1/g" ); do
-              docker build -f ${tag}/Dockerfile . -t gunosy/ci-terraform-tfnotify:${tag}
-              docker push gunosy/ci-terraform-tfnotify:${tag}
-            done
+          command: ./build.sh
 workflows:
   build:
     jobs:
