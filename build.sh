@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-tail -n +2 versions.txt | \
+tail -n +2 versions.txt | awk 1 | \
 while read -r TF_VERSION TFNOTIFY_VERSION GLIBC_VERSION AWS_CLI_VERSION; do\
     cat <<EOF
 build $TF_VERSION
